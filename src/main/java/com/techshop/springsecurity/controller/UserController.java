@@ -5,6 +5,7 @@ import com.techshop.springsecurity.entity.UserInfo;
 import com.techshop.springsecurity.service.JwtService;
 import com.techshop.springsecurity.service.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -48,11 +49,13 @@ public class UserController {
     }
 
     @GetMapping("/getUsers")
+    @PreAuthorize ("hasAnyAuthority('ADMIN_ROLES')")
     public List<UserInfo> getAllUsers(){
         return userInfoService.getAllUser ();
     }
 
     @GetMapping("/getUsers/{id}")
+    @PreAuthorize ("hasAnyAuthority('USER_ROLES')")
     public UserInfo getAllUsers(@PathVariable Integer id){
         return userInfoService.getUser (id);
     }

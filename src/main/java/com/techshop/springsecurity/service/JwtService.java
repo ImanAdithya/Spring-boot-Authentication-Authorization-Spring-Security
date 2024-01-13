@@ -14,7 +14,7 @@ import java.util.function.Function;
 
 @Component
 public class JwtService {
-    private static final String SECERET = "VBJEHFBVEJHRGR943TINGUI3YT5BHBFHUBG5UUBFR3BF34UTGH3UGFBGF";
+    private static final String SECERET = "!@#$FDGSDFGSGSGSGSHSHSHSSHGFFDSGSFGSSGHSDFSDFSFSFSFSDFSFSFSFJONDEJD";
 
     public String generateToken(String userName){
         Map<String, Objects> claims = new HashMap<>();
